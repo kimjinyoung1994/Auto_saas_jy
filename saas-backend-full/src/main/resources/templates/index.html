@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>홈</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h1 id="home-title" class="home-title">환영합니다</h1>
+  <p id="home-text" class="home-text">
+    <a th:href="@{/login}" id="home-login-link" class="link">로그인</a> 또는
+    <a th:href="@{/register}" id="home-register-link" class="link">회원가입</a> 후 시작하세요.
+  </p>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

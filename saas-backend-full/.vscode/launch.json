@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SaasApplication<saas-backend-full>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.saas.SaasApplication",
+            "projectName": "saas-backend-full",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

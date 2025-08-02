@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>프로젝트 목록</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h2 id="project-list-title" class="page-title">프로젝트 목록</h2>
+  <table id="project-table" class="table-projects">
+    <thead>
+      <tr><th>ID</th><th>제목</th><th>설명</th><th>상태</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr th:each="proj : ${projectResponses}" id="project-row-[[${proj.id}]]" class="project-row">
+        <td th:text="${proj.id}"></td>
+        <td th:text="${proj.title}"></td>
+        <td th:text="${proj.description}"></td>
+        <td th:text="${proj.status}"></td>
+        <td>
+          <a th:href="@{/projects/{id}(id=${proj.id})}" class="button-link" id="project-detail-link-[[${proj.id}]]">상세</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a th:href="@{/projects/new}" id="project-new-link" class="button-link">새 프로젝트 생성</a>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

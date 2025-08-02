@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>프로젝트 생성/수정</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h2 id="project-form-title" class="page-title">프로젝트 생성/수정</h2>
+  <form th:action="@{${isEdit} ? '/projects/' + ${projectRequest.id} : '/projects'}"
+        th:object="${projectRequest}" method="post"
+        id="project-form" class="form-project">
+    <label for="project-title">제목</label>
+    <input type="text" th:field="*{title}" id="project-title" class="input-title" required/>
+    <label for="project-description">설명</label>
+    <textarea th:field="*{description}" id="project-description" class="textarea-description"></textarea>
+    <label for="project-status">상태</label>
+    <select th:field="*{status}" id="project-status" class="select-status">
+      <option value="ACTIVE">ACTIVE</option>
+      <option value="INACTIVE">INACTIVE</option>
+      <option value="COMPLETED">COMPLETED</option>
+    </select>
+    <button type="submit" id="project-submit" class="button-submit">저장</button>
+  </form>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

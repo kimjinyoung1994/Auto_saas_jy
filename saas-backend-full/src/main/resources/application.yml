@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/saas_db
+    username: your_db_username
+    password: your_db_password
+  jpa:
+    hibernate:
+      ddl-auto: update       # 개발: update, 운영: validate
+    show-sql: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false             # 개발: false, 운영: true
+
+jwt:
+  secret: your_jwt_secret    # 32자 이상 랜덤 문자열
+  expiration: 3600000        # 토큰 만료 시간(ms)
+
+spring:
+  security:
+    enabled: false
