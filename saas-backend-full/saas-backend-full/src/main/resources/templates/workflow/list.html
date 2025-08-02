@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>워크플로우 목록</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h2 id="workflow-list-title" class="page-title">워크플로우 목록</h2>
+  <table id="workflow-table" class="table-workflows">
+    <thead>
+      <tr><th>ID</th><th>트리거</th><th>액션</th><th>조건</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr th:each="wf : ${workflowResponses}" id="workflow-row-[[${wf.id}]]" class="workflow-row">
+        <td th:text="${wf.id}"></td>
+        <td th:text="${wf.triggerType}"></td>
+        <td th:text="${wf.actions}"></td>
+        <td th:text="${wf.conditions}"></td>
+        <td>
+          <a th:href="@{/workflows/{id}(id=${wf.id})}" class="button-link" id="workflow-detail-link-[[${wf.id}]]">상세</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a th:href="@{/workflows/new}" id="workflow-new-link" class="button-link">새 워크플로우 생성</a>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

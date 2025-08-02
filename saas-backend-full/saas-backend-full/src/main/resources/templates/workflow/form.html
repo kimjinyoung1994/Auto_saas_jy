@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>워크플로우 생성/수정</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h2 id="workflow-form-title" class="page-title">워크플로우 생성/수정</h2>
+  <form th:action="@{${isEdit} ? '/workflows/' + ${workflowRequest.id} : '/workflows'}"
+        th:object="${workflowRequest}" method="post"
+        id="workflow-form" class="form-workflow">
+    <input type="hidden" th:field="*{projectId}" id="workflow-project-id" class="input-project-id"/>
+    <label for="workflow-triggerType">트리거 유형</label>
+    <select th:field="*{triggerType}" id="workflow-triggerType" class="select-trigger-type">
+      <option value="CRON">CRON</option>
+      <option value="WEBHOOK">WEBHOOK</option>
+      <option value="MANUAL">MANUAL</option>
+    </select>
+    <label for="workflow-actions">액션 (JSON)</label>
+    <textarea th:field="*{actions}" id="workflow-actions" class="textarea-actions"></textarea>
+    <label for="workflow-conditions">조건 (JSON)</label>
+    <textarea th:field="*{conditions}" id="workflow-conditions" class="textarea-conditions"></textarea>
+    <button type="submit" id="workflow-submit" class="button-submit">저장</button>
+  </form>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

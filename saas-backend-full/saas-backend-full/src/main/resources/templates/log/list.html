@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>실행 기록 목록</title></head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+  <h2 id="log-list-title" class="page-title">실행 기록 목록</h2>
+  <table id="log-table" class="table-logs">
+    <thead>
+      <tr><th>ID</th><th>Workflow ID</th><th>결과</th><th>실행 시각</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr th:each="log : ${executionLogResponses}" id="log-row-[[${log.id}]]" class="log-row">
+        <td th:text="${log.id}"></td>
+        <td th:text="${log.workflowId}"></td>
+        <td th:text="${log.result}"></td>
+        <td th:text="${#dates.format(log.executedAt,'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td>
+          <a th:href="@{/logs/{id}(id=${log.id})}" class="button-link" id="log-detail-link-[[${log.id}]]">상세</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+/* ==================================================
+   Global Variables & Resets
+   ================================================== */
+:root {
+  --primary-color: #4A90E2;
+  --secondary-color: #ffffff;
+  --bg-color: #f5f7fa;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --spacing: 1rem;
+  --max-width: 800px;
+  --font-family: 'Inter', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ==================================================
+   Header & Footer
+   ================================================== */
+#nav-bar,
+.nav-bar {
+  width: 100%;
+  background-color: var(--secondary-color);
+  box-shadow: var(--shadow);
+}
+
+#nav-bar nav,
+.nav-bar nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--spacing)/2) var(--spacing);
+  justify-content: space-between;
+}
+
+#nav-bar nav a,
+.nav-bar nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: var(--spacing);
+  transition: color 0.3s;
+}
+
+#nav-bar nav a:hover,
+.nav-bar nav a:hover {
+  color: var(--primary-color);
+}
+
+#footer,
+.footer {
+  background-color: var(--secondary-color);
+  padding: var(--spacing);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+#footer p,
+.footer p {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* ==================================================
+   Links
+   ================================================== */
+.link,
+.button-link,
+a.button-link {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.link:hover,
+.button-link:hover,
+a.button-link:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* ==================================================
+   Home Page (index.html)
+   ================================================== */
+#home-title,
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing);
+  text-align: center;
+}
+
+#home-text,
+.home-text {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#home-login-link,
+#home-register-link {
+  margin: 0 var(--spacing)/2;
+}
+
+/* ==================================================
+   Page Titles
+   ================================================== */
+.page-title,
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing);
+  text-align: center;
+}
+
+/* ==================================================
+   Forms (login, register, project, workflow)
+   ================================================== */
+#login-form, .form-login,
+#register-form, .form-register,
+#project-form, .form-project,
+#workflow-form, .form-workflow {
+  background-color: var(--secondary-color);
+  padding: calc(var(--spacing)*1.5);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+input[type="email"],
+input[type="password"],
+.input-email, .input-password,
+.input-title,
+.input-project-id,
+.textarea-description,
+.textarea-actions,
+.textarea-conditions,
+select,
+.select-status,
+.select-trigger-type {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: border-color 0.3s;
+}
+
+input:focus,
+.input-email:focus,
+.input-password:focus,
+.input-title:focus,
+.select-status:focus,
+.select-trigger-type:focus,
+.textarea-description:focus,
+.textarea-actions:focus,
+.textarea-conditions:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button-submit,
+#login-submit,
+#register-submit,
+#project-submit,
+#workflow-submit {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: filter 0.3s, transform 0.2s;
+}
+
+.button-submit:hover,
+#login-submit:hover,
+#register-submit:hover,
+#project-submit:hover,
+#workflow-submit:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* ==================================================
+   Tables (project list, workflow list, log list)
+   ================================================== */
+#project-table, .table-projects,
+#workflow-table, .table-workflows,
+#log-table, .table-logs {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto 2rem;
+  border-collapse: collapse;
+}
+
+#project-table th, .table-projects th,
+#workflow-table th, .table-workflows th,
+#log-table th, .table-logs th,
+#project-table td, .table-projects td,
+#workflow-table td, .table-workflows td,
+#log-table td, .table-logs td {
+  padding: 0.75rem 1rem;
+}
+
+th {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+}
+
+td {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-row:hover,
+.workflow-row:hover,
+.log-row:hover {
+  background-color: #f0f4f8;
+}
+
+/* ==================================================
+   Detail Views (project, workflow, log)
+   ================================================== */
+.detail-view,
+#project-detail,
+#workflow-detail,
+#log-detail {
+  background-color: var(--secondary-color);
+  padding: calc(var(--spacing)*1.5);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto 2rem;
+}
+
+.detail-view h2,
+#project-detail-title,
+#workflow-detail-title,
+#log-detail-title {
+  margin-bottom: var(--spacing);
+  text-align: center;
+}
+
+/* ==================================================
+   Responsive Breakpoints
+   ================================================== */
+@media (min-width: 768px) {
+  #nav-bar nav, .nav-bar nav {
+    padding: var(--spacing);
+  }
+  #login-form, .form-login,
+  #register-form, .form-register,
+  #project-form, .form-project,
+  #workflow-form, .form-workflow {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #login-form, .form-login,
+  #register-form, .form-register,
+  #project-form, .form-project,
+  #workflow-form, .form-workflow {
+    max-width: 600px;
+  }
+}
